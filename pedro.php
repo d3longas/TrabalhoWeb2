@@ -219,6 +219,6 @@
     Todos os direitos reservados.
 </footer>
     <button id="dark" onclick="myFunction()">🌙</button>
-    <button id="proximo" onclick="location.href = 'arthur.html'">➡</button>
+    <button id="proximo" onclick="location.href = 'arthur.php?nick=D3longas'">➡</button>
 </body>
 </html>
