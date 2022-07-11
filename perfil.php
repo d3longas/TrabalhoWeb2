@@ -20,12 +20,34 @@
 
 <body>
 
+    <div id="navbar">
+        <button class="navbar_button">
+            Login
+        </button>
+        <a href="fileupload.php"><button class="navbar_button">
+            Cadastro
+        </button></a>
+        
+    </div>
     <div id="corpo">
 
 
         <div id="perfil" class="perfil">
 
-            <div id="fotoperfil"></div>
+            <div id="fotoperfil">
+            <?php
+            $collection = $db->imagens;
+            $cursor = $collection->findOne(array('nick' => $_GET['nick']));
+                if($cursor== null){
+                    $cursor = $collection->findOne(array('nick' => 'Anon'));
+                    $srcimage = $cursor["imagem"];
+                }
+                echo "
+                <img src='data:image/jpg;charset=utf8;base64,{$cursor["imagem"]}' class='img' alt='{$_GET["nick"]}'></a>
+                ";
+                
+            ?>
+            </div>
             <div>
                 <h2 id="nome"></h2>
             </div>
@@ -123,7 +145,6 @@
         Todos os direitos reservados.
     </footer>
     <button id="dark" onclick="myFunction()">🌙</button>
-    <button id="proximo" onclick="location.href = 'pedro.php?nick=Europh'">➡</button>
 </body>
 
 </html>
